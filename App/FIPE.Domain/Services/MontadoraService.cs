@@ -18,5 +18,10 @@ namespace FIPE.Domain.Services
         {
             return _montadoraRepository.GetAll();
         }
+
+        public void Dispose()
+        {
+            _montadoraRepository.Dispose();
+        }
     }
 }

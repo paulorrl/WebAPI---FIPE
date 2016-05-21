@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using FIPE.Domain.Entities;
@@ -19,6 +20,12 @@ namespace FIPE.Infra.Data.Repositories
         public IEnumerable<Carro> GetByMontadora(int montadoraId)
         {
             return _context.Carros.Where(x => x.MontadoraId == montadoraId).Include("AnoModeloCarro");
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -18,5 +18,10 @@ namespace FIPE.Domain.Services
         {
             return _carroRepository.GetByMontadora(montadoraId);
         }
+
+        public void Dispose()
+        {
+            _carroRepository.Dispose();
+        }
     }
 }
